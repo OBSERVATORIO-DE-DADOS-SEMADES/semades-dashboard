@@ -228,60 +228,59 @@ button:hover {
   }
 }
 
-/* Celulares */
+/* ===== CORREÇÃO MOBILE (tudo centralizado, carrossel visível) ===== */
 @media (max-width: 768px) {
   .login-wrapper {
     flex-direction: column;
-    background: linear-gradient(180deg, #0091ea 0%, #00bfa5 100%);
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
-    gap: 1.5rem;
-    padding: 1rem 0;
+    min-height: 100vh;
+    background: linear-gradient(180deg, #0091ea 0%, #00bfa5 100%);
+    padding: 1.5rem 0 2rem;
+    overflow-y: auto; /* permite rolar se precisar */
   }
 
   .login-left {
     width: 90%;
-    padding: 2rem 1.2rem;
+    flex: none;
+    padding: 1.5rem 1rem;
+    margin-bottom: 1.8rem; /* espaço pro carrossel aparecer */
     background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(12px);
+    backdrop-filter: blur(10px);
     border-radius: 16px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-  }
-
-  .login-box {
-    padding: 2rem 1.5rem;
-    max-width: 360px;
-  }
-
-  .login-title {
-    font-size: 1.6rem;
-  }
-
-  .login-instructions {
-    color: #000;
-    font-size: 0.95rem;
+    position: relative;
+    z-index: 3;
   }
 
   .login-right {
     width: 100%;
-    height: auto;
     flex: none;
-    margin-bottom: 1.5rem;
-    padding: 0 1rem;
+    height: 260px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 1;
   }
 
   .carousel-container {
     width: 100%;
-    height: auto;
+    height: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .slide {
-    width: 95%;
-    max-width: 480px;
-    aspect-ratio: 16/10;
+    width: 90%;
+    max-width: 420px;
+    aspect-ratio: 16/9;
+    border-radius: 14px;
     transform: none;
     opacity: 0;
-    transition: opacity 1s ease-in-out, transform 1s ease;
+    transition: opacity 1s ease-in-out;
   }
 
   .slide.ativo {
@@ -290,8 +289,8 @@ button:hover {
   }
 
   .slide-texto {
+    bottom: 18px;
     left: 16px;
-    bottom: 20px;
     max-width: 85%;
   }
 
@@ -305,52 +304,5 @@ button:hover {
 
   .slide-link {
     font-size: 0.8rem;
-  }
-}
-
-/* Telas pequenas (até 480px) */
-@media (max-width: 480px) {
-  .logo-prefeitura {
-    width: 110px;
-    margin-bottom: 0.8rem;
-  }
-
-  .login-box {
-    padding: 1.8rem 1.2rem;
-    max-width: 330px;
-  }
-
-  .login-title {
-    font-size: 1.4rem;
-  }
-
-  .login-instructions {
-    font-size: 0.85rem;
-  }
-
-  input,
-  button {
-    font-size: 0.9rem;
-  }
-
-  .slide {
-    width: 90%;
-    max-width: 360px;
-    aspect-ratio: 4/3;
-  }
-
-  .slide-texto {
-    left: 12px;
-    bottom: 16px;
-    max-width: 90%;
-  }
-
-  .slide-texto h4 {
-    font-size: 0.95rem;
-  }
-
-  .slide-descricao {
-    font-size: 0.8rem;
-    line-height: 1.3;
   }
 }
