@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import "./styles/Root.css";
+import "./styles/Print.css";
 import EnvironmentCards from "./components/EnvironmentCards";
 import EconomicSection from "./components/EconomicSection";
 import IndicatorEvolution from "./components/IndicatorEvolution";
@@ -81,12 +82,57 @@ export default function Root() {
     navigate("/");
   };
 
+  // Função para preparar e abrir a caixa de impressão com cabeçalho e rodapé
+  const handleExport = () => {
+    const header = document.getElementById("print-header");
+    if (header) {
+      header.innerHTML = `
+        <div class="print-center"></div>
+      `;
+    }
+
+    // Delay pequeno para renderizar antes de abrir a caixa de impressão
+    setTimeout(() => window.print(), 180);
+  };
+
   return (
     <div className="dashboard-container">
+      {/* elemento que aparece somente na impressão (preenchido por JS antes de chamar print) */}
+      <div id="print-header" className="print-header no-print" aria-hidden="true"></div>
       <header className="dashboard-header">
         {/* Botão de sair no topo */}
         <button
+          onClick={handleExport}
+          className="no-print"
+          style={{
+            position: "absolute",
+            top: "20px",
+            right: "120px",
+            background: "#fff",
+            border: "1px solid #e0e0e0",
+            color: "#222",
+            padding: "8px 12px",
+            borderRadius: "8px",
+            fontWeight: "600",
+            cursor: "pointer",
+            boxShadow: "0 2px 8px rgba(0, 0, 0, 0.06)",
+            transition: "0.18s",
+          }}
+          onMouseOver={(e) => {
+            e.target.style.transform = "scale(1.03)";
+            e.target.style.boxShadow = "0 4px 12px rgba(0,0,0,0.12)";
+          }}
+          onMouseOut={(e) => {
+            e.target.style.transform = "scale(1)";
+            e.target.style.boxShadow = "0 2px 8px rgba(0,0,0,0.06)";
+          }}
+        >
+          Exportar
+        </button>
+
+        <button
           onClick={handleLogout}
+          className="no-print"
           style={{
             position: "absolute",
             top: "20px",
