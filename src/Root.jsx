@@ -9,7 +9,7 @@ const indicadores = [
   {
     icone: "🏢",
     cor: "economia",
-    titulo: "EMPRESAS",
+    titulo: "Empresas",
     fonte: "PLANURB, 2025",
     subtitulo: "Crescimento e número de estabelecimentos ativos",
     posicao: "1º",
@@ -18,7 +18,7 @@ const indicadores = [
   {
     icone: "💼",
     cor: "economia",
-    titulo: "EMPREGOS",
+    titulo: "Empregos",
     fonte: "CAGED, 2025",
     subtitulo: "Geração de empregos formais e informais",
     posicao: "2º",
@@ -27,7 +27,7 @@ const indicadores = [
   {
     icone: "🐄",
     cor: "sustentabilidade",
-    titulo: "AGRONEGÓCIO: PECUÁRIA",
+    titulo: "Agronegócio: Pecuária",
     fonte: "IBGE, 2024",
     subtitulo: "Produção e movimentação de rebanhos",
     posicao: "3º",
@@ -36,7 +36,7 @@ const indicadores = [
   {
     icone: "🌾",
     cor: "sustentabilidade",
-    titulo: "AGRONEGÓCIO: AGRICULTURA",
+    titulo: "Agronegócio: Agricultura",
     fonte: "IBGE, 2024",
     subtitulo: "Produção e área plantada das principais culturas",
     posicao: "4º",
@@ -60,6 +60,16 @@ const indicadores = [
     posicao: "6º",
     link: "https://lookerstudio.google.com/reporting/f63d1dd2-0f38-4580-a7b7-e50e17f4c8d1",
   },
+  {
+    icone: "📊",
+    cor: "economia",
+    titulo: "PRODES",
+    fonte: " ",
+    subtitulo: "Programa de incentivos para o desenvolvimento econômico e social de Campo Grande",
+    posicao: "7º",
+    link: " ",
+  },
+  
 ];
 
 export default function Root() {
