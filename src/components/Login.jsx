@@ -79,7 +79,7 @@ function Login() {
       <div className="login-left">
         <div className="login-box">
             <img
-              src="/prefcg1.png"
+              src="/logo/prefcg1.png"
               alt="Prefeitura de Campo Grande"
               className="logo-prefeitura"
             />
