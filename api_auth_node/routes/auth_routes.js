@@ -21,7 +21,7 @@ router.post('/cadastro', async (req, res) => {
     // Verifica se jo existe usuorio com o mesmo e-mail
     const userExists = await User.findOne({ email });
     if (userExists) {
-      return res.status(400).json({ message: 'E-mail jo cadastrado' });
+      return res.status(400).json({ message: 'E-mail já cadastrado' });
     }
 
     // Cria novo usuorio
@@ -33,10 +33,10 @@ router.post('/cadastro', async (req, res) => {
 
     await newUser.save();
 
-    res.status(201).json({ message: 'Usuorio cadastrado com sucesso' });
+    res.status(201).json({ message: 'Usuário cadastrado com sucesso' });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ message: 'Erro ao tentar cadastrar usuorio' });
+    res.status(500).json({ message: 'Erro ao tentar cadastrar usuário' });
   }
 });
 
@@ -56,13 +56,13 @@ router.post('/login', async (req, res) => {
     const { email, password } = req.body;
     // Procura o usuorio
     const user = await User.findOne({ email });
-    if (!user) return res.status(400).json({ message: 'E-mail nuo encontrado' });
+    if (!user) return res.status(400).json({ message: 'E-mail não encontrado' });
 
     console.log("Teste 1", user);
 
     // Verifica senha
     const isMatch = await user.comparePassword(password);
-    if (!isMatch) return res.status(400).json({ message: 'Senha invalida' });
+    if (!isMatch) return res.status(400).json({ message: 'Senha inválida' });
 
     console.log("Teste 2", user);
 
@@ -85,18 +85,9 @@ router.get('/lista-usuarios', async (req, res) => {
         res.status(200).json(users);
     } catch (error) {
         console.error(error);
-        res.status(500).json({ message: 'Nenhum usuorio cadastrado' });
+        res.status(500).json({ message: 'Nenhum usuário cadastrado' });
     }
 });
 
-router.delete('/delete', async (_req, res) => {
-  try {
-    const result = await User.deleteMany({});
-    res.status(200).json({ message: 'Usuários deletados', deletedCount: result.deletedCount });
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: 'Erro ao deletar usuários' });
-  }
-});
 
 export default router;
