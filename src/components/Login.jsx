@@ -1,21 +1,35 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../styles/Login.css";
+import { login as loginRequest } from "../services/authApi";
 
 function Login() {
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [erro, setErro] = useState("");
   const [slides, setSlides] = useState([]);
   const [slideAtual, setSlideAtual] = useState(0);
   const navigate = useNavigate();
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
-    if (email === "admin@teste.com" && senha === "123456") {
+    setErro("");
+    setLoading(true);
+
+    try {
+      const data = await loginRequest({ email, password: senha });
+
+      // Persist info minima para validar sessao no client
       localStorage.setItem("auth", "true");
+      if (data?.token) localStorage.setItem("authToken", data.token);
+      if (data?.user) localStorage.setItem("authUser", JSON.stringify(data.user));
+
       navigate("/dashboard");
-    } else {
-      alert("E-mail ou senha incorretos!");
+    } catch (err) {
+      setErro(err.message ?? "Erro ao conectar com o servidor.");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -109,8 +123,15 @@ function Login() {
                 onChange={(e) => setSenha(e.target.value)}
                 required
               />
-              <button type="submit">Entrar</button>
+              {erro && <p className="login-error">{erro}</p>}
+              <button type="submit" disabled={loading}>
+                {loading ? "Entrando..." : "Entrar"}
+              </button>
             </form>
+            <p className="login-helper">
+              Ainda não tem acesso?
+              <Link to="/cadastro">Criar conta</Link>
+            </p>
           </div>
         </div>
 
