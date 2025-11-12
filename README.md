@@ -80,7 +80,7 @@ Configure o Mongo em `api_auth_node/.env` (`MONGODB_URI`, `JWT_SECRET`, etc.) an
      --set-env-vars MONGO_URI="sua-string",JWT_KEY="sua-chave"
    ```
    - Use os mesmos valores que estavam no `.env` local (ou configure novos segredos).
-   - O Cloud Run injeta a variável `PORT`, já suportada pelo `server.js`.
+   - O Cloud Run injeta a variável `PORT`, já suportada pelo `server.js`
 
 ### Script automatizado (Windows/PowerShell)
 Para evitar digitar cada comando, rode (a partir da raiz do projeto):
