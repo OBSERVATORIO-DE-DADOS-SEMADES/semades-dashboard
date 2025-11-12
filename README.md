@@ -49,6 +49,9 @@ npm start  # porta 4000, rota /api/noticias
 
 Configure o Mongo em `api_auth_node/.env` (`MONGODB_URI`, `JWT_SECRET`, etc.) antes de rodar.
 
+# Ferramentas Python para provisionar Node.js/NPM e permitir rodar `npm run *`
+npm install express mongoose bcryptjs jsonwebtoken dotenv nodemon
+
 ## Autores
 - Bianca Sabka
 - Magnum Abreu
