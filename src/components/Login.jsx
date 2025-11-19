@@ -12,13 +12,40 @@ function Login() {
   const [slideAtual, setSlideAtual] = useState(0);
   const navigate = useNavigate();
 
+  const validateCredentials = () => {
+    const trimmedEmail = email.trim();
+    const trimmedPassword = senha.trim();
+
+    if (!trimmedEmail || !trimmedPassword) {
+      setErro("Informe e-mail e senha.");
+      return false;
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(trimmedEmail)) {
+      setErro("Digite um e-mail válido.");
+      return false;
+    }
+
+    if (trimmedPassword.length < 6) {
+      setErro("A senha precisa ter pelo menos 6 caracteres.");
+      return false;
+    }
+
+    return { email: trimmedEmail, password: trimmedPassword };
+  };
+
   const handleLogin = async (e) => {
     e.preventDefault();
     setErro("");
+
+    const validPayload = validateCredentials();
+    if (!validPayload) return;
+
     setLoading(true);
 
     try {
-      const data = await loginRequest({ email, password: senha });
+      const data = await loginRequest(validPayload);
 
       // Persist info minima para validar sessao no client
       localStorage.setItem("auth", "true");
