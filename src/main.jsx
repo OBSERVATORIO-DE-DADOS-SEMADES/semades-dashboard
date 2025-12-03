@@ -12,15 +12,11 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     <Router>
       <Routes>
        
-        <Route path="/" element={<Login />} />
-        <Route path="/cadastro" element={<Register />} />
+       <Route path="/" element={<Root />} />
+        <Route path="/dashboard" element={<Root />} />
 
-       
-        <Route
-          path="/dashboard"
-          element={<PrivateRoute element={<Root />} />}
-        />
-      </Routes>
+
+        </Routes>
     </Router>
   </React.StrictMode>
 );
