@@ -5,6 +5,7 @@ import "./styles/Print.css";
 import EnvironmentCards from "./components/EnvironmentCards";
 import EconomicSection from "./components/EconomicSection";
 import IndicatorEvolution from "./components/IndicatorEvolution";
+import Superintendencias from "./components/Superintendencias.jsx";
 
 const indicadores = [
   {
