@@ -6,18 +6,18 @@ import Register from "./components/Register.jsx";
 import Root from "./Root.jsx";
 import PrivateRoute from "./components/PrivateRoute";
 import "./styles/global.css";
+import Superintendencias from "./components/Superintendencias.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <Router>
       <Routes>
-       
-       <Route path="/" element={<Root />} />
+        <Route path="/" element={<Root />} />
         <Route path="/dashboard" element={<Root />} />
-
-
-
-        </Routes>
+        <Route path="/superintendencias" element={<Superintendencias />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/cadastro" element={<Register />} />
+      </Routes>
     </Router>
   </React.StrictMode>
 );
