@@ -2,12 +2,20 @@ import express from "express";
 import cors from "cors";
 import Parser from "rss-parser";
 import https from "https";
+import path from "path";
+import { fileURLToPath } from "url";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0"; // OK para localhost
 
 const app = express();
 const parser = new Parser();
 app.use(cors());
+
+// Servir arquivos estáticos do build do Vite
+app.use(express.static(path.join(__dirname, "../dist")));
 
 // ===== FALLBACK PADRÃO =====
 const noticiasFallback = [
@@ -59,6 +67,11 @@ app.get("/api/noticias", async (req, res) => {
     console.error("❌ Erro ao buscar o feed, usando fallback:", error.message);
     res.json(noticiasFallback);
   }
+});
+
+// Todas as outras rotas devem retornar o index.html (para o React Router funcionar)
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../dist/index.html"));
 });
 
 const PORT = process.env.PORT || 4000;
