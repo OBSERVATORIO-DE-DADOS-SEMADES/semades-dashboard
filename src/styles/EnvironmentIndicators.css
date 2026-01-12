@@ -1,0 +1,28 @@
+.environment-indicators {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.environment-indicators .header {
+  margin-bottom: 1.5rem;
+}
+
+.environment-indicators h2 {
+  color: #1e56a0;
+  font-size: 1.2rem;
+  margin-bottom: 0.3rem;
+}
+
+.environment-indicators p {
+  color: #666;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.chart-container {
+  height: 400px;
+  position: relative;
+  margin-top: 1rem;
+}
