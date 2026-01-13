@@ -182,9 +182,10 @@
 
 .legend-item {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 12px;
   color: #333;
+  cursor: pointer;
 }
 
 .legend-swatch {
@@ -196,11 +197,14 @@
 
 .legend-label {
   font-weight: 600;
+  flex: 1 1 auto;
+  text-align: left;
 }
 
 .legend-value {
   margin-left: auto;
   color: #666;
+  white-space: nowrap;
 }
 
 @media (max-width: 860px) {
@@ -252,9 +256,15 @@
 
 /* para o SVG do donut, o preenchimento será referenciado via var(--blue-N) */
 .chart-box svg path {
-  transition: fill 0.18s ease;
+  transition: fill 0.18s ease, opacity 0.18s ease, transform 0.12s ease;
 }
 
 .chart-box svg path:hover {
   filter: brightness(0.95);
 }
+
+/* hover/dim states */
+.chart-box svg path.dimmed { opacity: 0.18; }
+.chart-box svg path.hovered-slice { opacity: 1; transform: scale(1.01); }
+.legend-item.dimmed { opacity: 0.32; }
+.legend-item.hovered { opacity: 1; font-weight: 800; }
