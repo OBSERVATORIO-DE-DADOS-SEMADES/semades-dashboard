@@ -313,7 +313,7 @@ export default function DadosCentro() {
                 {proprietariosImoveisQtd.map((item, i) => {
                   const maxY = 80;
                   const pct = Math.max(0, Math.min(100, (item.value / maxY) * 100));
-                  const valueText = `${item.value} imóveis`;
+                  const valueText = `${item.value} Imóveis`;
 
                   return (
                     <div className="bar-col" key={`qtd-${i}`}>
