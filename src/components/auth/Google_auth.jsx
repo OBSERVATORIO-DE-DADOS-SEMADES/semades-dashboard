@@ -12,7 +12,7 @@ export default function GoogleAuth({ onSuccess, onError }) {
     script.onload = () => {
       if (window.google) {
         window.google.accounts.id.initialize({
-          client_id: "YOUR_GOOGLE_CLIENT_ID", // Substitua pelo seu Client ID do Google
+          client_id: "114439228005-cn91vb81bnn41retitig9v8bjlfkfo8d.apps.googleusercontent.com",
           callback: handleCredentialResponse,
         });
 
