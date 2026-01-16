@@ -1,5 +1,3 @@
-/* Dados Centro — estilos específicos para organizar header/menu e título */
-
 /* NAVBAR / HEADER */
 .navbar {
   width: 100%;
@@ -143,6 +141,7 @@
   gap: 18px;
   align-items: center;
   position: relative;
+  overflow: visible; /* IMPORTANTE: garante que tooltips não sejam cortados */
 }
 
 /* Paleta de 10 tons de azul — aplicada especificamente ao card de Dados Centro */
@@ -262,18 +261,21 @@
    =========================== */
 
 .bar-cards-row {
-  max-width: 1180px;
+  width: 100%;
+  max-width: min(1180px, calc(100vw - 32px)); /* <<< evita vazar pro lado */
   margin: 1.6rem auto 2rem auto;
   display: flex;
   gap: 18px;
   align-items: stretch;
-  padding: 0 8px;
+  padding: 0 16px; /* <<< mais seguro */
+  box-sizing: border-box; /* <<< impede overflow por padding */
 }
 
 .bar-cards-row .dados-card {
   margin: 0;
   max-width: none;
   flex: 1 1 0;
+  min-width: 0; /* <<< MUITO IMPORTANTE: flex não estoura */
 }
 
 /* Card de barras com layout vertical */
@@ -298,7 +300,8 @@
   border-bottom: 2px solid #9ca3af; /* eixo X (linha do 0) */
   border-radius: 10px;
   background: #fff;
-  overflow: hidden;
+  overflow: visible; /* <<< AQUI: TOOLTIP NÃO CORTA MAIS */
+  z-index: 1;
 }
 
 /* grid só dentro do plot */
@@ -403,7 +406,7 @@
 /* tooltip */
 .bar-tooltip {
   position: absolute;
-  z-index: 50;
+  z-index: 999; /* garante por cima */
   min-width: 230px;
   max-width: 340px;
   background: #ffffff;
@@ -441,7 +444,6 @@
   color: #053a6b;
 }
 
-/* responsivo: empilha os cards */
 @media (max-width: 980px) {
   .bar-cards-row {
     flex-direction: column;
