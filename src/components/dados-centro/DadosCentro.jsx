@@ -139,7 +139,12 @@ export default function DadosCentro() {
       <div className="resumo-row">
         <div className="resumo-cards">
           <div className="resumo-card">
-            <div className="resumo-icon" />
+            <img
+              className="resumo-icon-img"
+              src="/imagens-cg/IconImoveis.jpg"
+              alt="Ícone Quantidade de Imóveis"
+            />
+
             <div className="resumo-text">
               <div className="resumo-title">Quantidade de Imóveis</div>
               <div className="resumo-value">6.178</div>
@@ -147,23 +152,38 @@ export default function DadosCentro() {
           </div>
 
           <div className="resumo-card">
-            <div className="resumo-icon" />
+            <img
+              className="resumo-icon-img"
+              src="/imagens-cg/IconValorVenal.jpg"
+              alt="Ícone Valor Venal"
+            />
+
             <div className="resumo-text">
               <div className="resumo-title">Valor Venal</div>
-              <div className="resumo-value">2.524.530.392,64</div>
+              <div className="resumo-value">R$ 2.524.530.392,64</div>
             </div>
           </div>
 
           <div className="resumo-card">
-            <div className="resumo-icon" />
+            <img
+              className="resumo-icon-img"
+              src="/imagens-cg/IconValorTotal.jpg"
+              alt="Ícone Valor Total"
+            />
+
             <div className="resumo-text">
               <div className="resumo-title">Valor Total</div>
-              <div className="resumo-value">97.944.779.641,77</div>
+              <div className="resumo-value">R$ 97.944.779.641,77</div>
             </div>
           </div>
 
           <div className="resumo-card">
-            <div className="resumo-icon" />
+            <img
+              className="resumo-icon-img"
+              src="/imagens-cg/IconAreaTerreno.jpg"
+              alt="Ícone Área do Terreno"
+            />
+
             <div className="resumo-text">
               <div className="resumo-title">Área do Terreno</div>
               <div className="resumo-value">7.617.790,94</div>
@@ -179,8 +199,11 @@ export default function DadosCentro() {
           aria-label="Abrir Looker do Centro de Campo Grande - MS"
         >
           <div className="looker-card">
-            <div className="looker-topbadge">1º</div>
-            <div className="looker-icon" />
+            <img
+              className="looker-flag"
+              src="/imagens-cg/BandeiraCampoGrandeMS.png"
+              alt="Bandeira de Campo Grande - MS"
+            />
             <div className="looker-text">
               <div className="looker-title">Looker do Centro de Campo Grande - MS</div>
               <div className="looker-meta">PLANURB, 2025</div>
