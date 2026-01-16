@@ -454,3 +454,188 @@
     width: 100%;
   }
 }
+
+
+
+
+/* ===========================
+   CARDS RESUMO (ANTES DOS GRÁFICOS) + CARD LOOKER
+   =========================== */
+
+.resumo-row {
+  width: 100%;
+  max-width: min(1180px, calc(100vw - 32px));
+  margin: 1.2rem auto 1.4rem auto;
+  display: flex;
+  gap: 18px;
+  align-items: stretch;
+  padding: 0 16px;
+  box-sizing: border-box;
+}
+
+.resumo-cards {
+  flex: 1 1 auto;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  min-width: 0;
+}
+
+.resumo-card {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 14px;
+  padding: 14px 14px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  min-width: 0;
+}
+
+.resumo-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  background: linear-gradient(90deg, #0091ea, #00bfa5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 38px;
+}
+
+.resumo-icon::before {
+  content: "";
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: inset 0 -2px 0 rgba(0, 0, 0, 0.08);
+}
+
+.resumo-text {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+}
+
+.resumo-title {
+  font-weight: 800;
+  color: #1f2933;
+  font-size: 0.95rem;
+  line-height: 1.1;
+}
+
+.resumo-value {
+  color: #053a6b;
+  font-weight: 900;
+  font-size: 1.05rem;
+  line-height: 1.1;
+  word-break: break-word;
+}
+
+.looker-linkcard {
+  flex: 0 0 360px;
+  min-width: 0;
+  text-decoration: none;
+  color: inherit;
+}
+
+.looker-card {
+  height: 100%;
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 16px 18px;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.10);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  position: relative;
+  transition: transform 0.14s ease, box-shadow 0.18s ease;
+}
+
+.looker-linkcard:hover .looker-card {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.14);
+}
+
+.looker-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: rgba(0, 145, 234, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 42px;
+}
+
+.looker-icon::before {
+  content: "";
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+  background: #0091ea;
+  box-shadow: inset 0 -2px 0 rgba(0, 0, 0, 0.12);
+}
+
+.looker-topbadge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: rgba(255, 172, 0, 0.16);
+  color: #a35a00;
+  border: 1px solid rgba(255, 172, 0, 0.30);
+  font-weight: 900;
+  font-size: 0.85rem;
+  padding: 6px 10px;
+  border-radius: 12px;
+}
+
+.looker-text {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+  padding-right: 52px; /* espaço pro badge */
+}
+
+.looker-title {
+  font-size: 1.2rem;
+  font-weight: 900;
+  color: #0f172a;
+  line-height: 1.1;
+}
+
+.looker-meta {
+  color: #64748b;
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+.looker-desc {
+  color: #475569;
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+@media (max-width: 980px) {
+  .resumo-row {
+    flex-direction: column;
+    max-width: 92%;
+    padding: 0;
+  }
+  .looker-linkcard {
+    flex: none;
+    width: 100%;
+  }
+}
+
+@media (max-width: 560px) {
+  .resumo-cards {
+    grid-template-columns: 1fr;
+  }
+}
