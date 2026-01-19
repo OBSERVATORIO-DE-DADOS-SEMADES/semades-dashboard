@@ -441,7 +441,7 @@
   color: #053a6b;
 }
 
-/* responsivo: empilha os cards */
+
 @media (max-width: 980px) {
   .bar-cards-row {
     flex-direction: column;
