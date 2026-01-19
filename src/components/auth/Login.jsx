@@ -4,6 +4,11 @@ import "../../styles/Login.css";
 import GoogleAuth from "./Google_auth";
 
 const LOCALHOSTS = new Set(["localhost", "127.0.0.1", "::1"]);
+
+// ativa o modo admin localmente para testes
+const admin_mode = false;
+
+
 const isLocalhost = () => {
   if (typeof window === "undefined") return false;
   const hostname = window.location?.hostname || "";
@@ -33,7 +38,7 @@ function Login() {
   };
 
   useEffect(() => {
-    if (isLocalhost()) {
+    if (admin_mode && isLocalhost()) {
       localStorage.setItem("authToken", "local-admin");
       localStorage.setItem(
         "authUser",
@@ -46,6 +51,20 @@ function Login() {
       );
       navigate("/dashboard");
       return;
+    }
+
+    if (!admin_mode && isLocalhost()) {
+      const storedUser = localStorage.getItem("authUser");
+      try {
+        const parsedUser = storedUser ? JSON.parse(storedUser) : null;
+        if (parsedUser?.provider === "local") {
+          localStorage.removeItem("authToken");
+          localStorage.removeItem("authUser");
+        }
+      } catch {
+        localStorage.removeItem("authToken");
+        localStorage.removeItem("authUser");
+      }
     }
 
     const user = localStorage.getItem("authUser");
@@ -131,7 +150,7 @@ function Login() {
             </p>
 
             {erro && <p className="login-error">{erro}</p>}
-            {isLocalhost() ? (
+            {admin_mode && isLocalhost() ? (
               <p className="login-helper">Acesso local detectado. Entrando como admin...</p>
             ) : (
               <GoogleAuth onSuccess={handleGoogleLogin} onError={setErro} />
