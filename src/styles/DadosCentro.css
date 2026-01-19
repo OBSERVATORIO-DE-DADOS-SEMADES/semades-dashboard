@@ -1,5 +1,3 @@
-/* Dados Centro — estilos específicos para organizar header/menu e título */
-
 /* NAVBAR / HEADER */
 .navbar {
   width: 100%;
@@ -143,6 +141,7 @@
   gap: 18px;
   align-items: center;
   position: relative;
+  overflow: visible; /* IMPORTANTE: garante que tooltips não sejam cortados */
 }
 
 /* Paleta de 10 tons de azul — aplicada especificamente ao card de Dados Centro */
@@ -262,18 +261,21 @@
    =========================== */
 
 .bar-cards-row {
-  max-width: 1180px;
+  width: 100%;
+  max-width: min(1180px, calc(100vw - 32px)); /* <<< evita vazar pro lado */
   margin: 1.6rem auto 2rem auto;
   display: flex;
   gap: 18px;
   align-items: stretch;
-  padding: 0 8px;
+  padding: 0 16px; /* <<< mais seguro */
+  box-sizing: border-box; /* <<< impede overflow por padding */
 }
 
 .bar-cards-row .dados-card {
   margin: 0;
   max-width: none;
   flex: 1 1 0;
+  min-width: 0; /* <<< MUITO IMPORTANTE: flex não estoura */
 }
 
 /* Card de barras com layout vertical */
@@ -298,7 +300,8 @@
   border-bottom: 2px solid #9ca3af; /* eixo X (linha do 0) */
   border-radius: 10px;
   background: #fff;
-  overflow: hidden;
+  overflow: visible; /* <<< AQUI: TOOLTIP NÃO CORTA MAIS */
+  z-index: 1;
 }
 
 /* grid só dentro do plot */
@@ -403,7 +406,7 @@
 /* tooltip */
 .bar-tooltip {
   position: absolute;
-  z-index: 50;
+  z-index: 999; /* garante por cima */
   min-width: 230px;
   max-width: 340px;
   background: #ffffff;
@@ -441,7 +444,6 @@
   color: #053a6b;
 }
 
-
 @media (max-width: 980px) {
   .bar-cards-row {
     flex-direction: column;
@@ -452,3 +454,252 @@
     width: 100%;
   }
 }
+
+
+
+
+/* ===========================
+   CARDS RESUMO (ANTES DOS GRÁFICOS) + CARD LOOKER
+   =========================== */
+
+.resumo-row {
+  width: 100%;
+  max-width: min(1180px, calc(100vw - 32px));
+  margin: 1.2rem auto 1.4rem auto;
+  display: flex;
+  gap: 18px;
+  align-items: stretch;
+  padding: 0 16px;
+  box-sizing: border-box;
+}
+
+.resumo-cards {
+  flex: 1 1 auto;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  min-width: 0;
+}
+
+.resumo-card {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 14px;
+  padding: 12px 14px;      /* ← ligeiramente menor (fininho) */
+  height: 82px;            /* ← ALTURA FIXA (igual ao Valor Total) */
+  box-sizing: border-box;  /* ← garante consistência */
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  min-width: 0;
+}
+
+.resumo-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  background: linear-gradient(90deg, #0091ea, #00bfa5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 38px;
+}
+
+.resumo-icon::before {
+  content: "";
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: inset 0 -2px 0 rgba(0, 0, 0, 0.08);
+}
+
+.resumo-text {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+  transform: translateX(-26px);
+  flex: 1;              /* ocupa todo o espaço restante do card */
+  align-items: center;  /* centraliza título/valor */
+  text-align: center;   /* centraliza o texto */
+}
+
+
+.resumo-title {
+  font-weight: 800;
+  color: #1f2933;
+  font-size: 0.95rem;
+  line-height: 1.1;
+}
+
+.resumo-value {
+  color: #053a6b;
+  font-weight: 900;
+  font-size: 1.05rem;
+  line-height: 1.1;
+  word-break: break-word;
+}
+
+.looker-linkcard {
+  flex: 0 0 360px;
+  min-width: 0;
+  text-decoration: none;
+  color: inherit;
+}
+
+.looker-card {
+  height: 100%;
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 16px 18px;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.10);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  position: relative;
+  transition: transform 0.14s ease, box-shadow 0.18s ease;
+}
+
+.looker-linkcard:hover .looker-card {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.14);
+}
+
+.looker-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: rgba(0, 145, 234, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 42px;
+}
+
+.looker-icon::before {
+  content: "";
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+  background: #0091ea;
+  box-shadow: inset 0 -2px 0 rgba(0, 0, 0, 0.12);
+}
+
+.looker-topbadge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: rgba(255, 172, 0, 0.16);
+  color: #a35a00;
+  border: 1px solid rgba(255, 172, 0, 0.30);
+  font-weight: 900;
+  font-size: 0.85rem;
+  padding: 6px 10px;
+  border-radius: 12px;
+}
+
+.looker-text {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+  padding-right: 52px; /* espaço pro badge */
+}
+
+.looker-title {
+  font-size: 1.2rem;
+  font-weight: 900;
+  color: #0f172a;
+  line-height: 1.1;
+}
+
+.looker-meta {
+  margin-top: 6px;   /* empurra para baixo */
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: #64748b;
+}
+
+
+.looker-desc {
+  position: absolute;
+  left: 50%;
+  bottom: 14px;
+  transform: translateX(-50%);
+
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #94a3b8;
+  text-align: center;
+  line-height: 1.1;
+  white-space: nowrap;
+}
+
+
+@media (max-width: 980px) {
+  .resumo-row {
+    flex-direction: column;
+    max-width: 92%;
+    padding: 0;
+  }
+  .looker-linkcard {
+    flex: none;
+    width: 100%;
+  }
+}
+
+@media (max-width: 560px) {
+  .resumo-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* substitui o quadradinho azul por uma imagem (bandeira) */
+.looker-flag {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  object-fit: cover;
+  flex: 0 0 42px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: inset 0 -2px 0 rgba(0, 0, 0, 0.08);
+  background: #ffffff;
+}
+
+/* ícones em imagem nos cards resumo */
+.resumo-icon-img {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  object-fit: contain;
+  flex: 0 0 38px;
+  background: #ffffff;
+}
+
+/* Aumenta ícones dos cards:
+   Área do Terreno */
+.resumo-card:nth-child(4) .resumo-icon-img {
+  width: 50px;
+  height: 50px;
+  flex: 0 0 50px;
+}
+
+/* Aumenta ícones dos cards:
+   Quantidade de Imóveis */
+.resumo-card:nth-child(1) .resumo-icon-img {
+  width: 60px;
+  height: 60px;
+  flex: 0 0 60px;
+}
+
+
+/* Aumenta ícones dos cards:
+   Valor Venal */
+  .resumo-card:nth-child(2) .resumo-icon-img {
+  width: 68px;
+  height: 68px;
+  flex: 0 0 68px;
+  }

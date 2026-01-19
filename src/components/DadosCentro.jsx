@@ -135,6 +135,84 @@ export default function DadosCentro() {
 
   return (
     <>
+      {/* ===== CARDS RESUMO + CARD LOOKER (ANTES DE TODOS OS GRÁFICOS) ===== */}
+      <div className="resumo-row">
+        <div className="resumo-cards">
+          <div className="resumo-card">
+            <img
+              className="resumo-icon-img"
+              src="/imagens-cg/IconImoveis.jpg"
+              alt="Ícone Quantidade de Imóveis"
+            />
+
+            <div className="resumo-text">
+              <div className="resumo-title">Quantidade de Imóveis</div>
+              <div className="resumo-value">6.178</div>
+            </div>
+          </div>
+
+          <div className="resumo-card">
+            <img
+              className="resumo-icon-img"
+              src="/imagens-cg/IconValorVenal.jpg"
+              alt="Ícone Valor Venal"
+            />
+
+            <div className="resumo-text">
+              <div className="resumo-title">Valor Venal</div>
+              <div className="resumo-value">R$ 2.524.530.392,64</div>
+            </div>
+          </div>
+
+          <div className="resumo-card">
+            <img
+              className="resumo-icon-img"
+              src="/imagens-cg/IconValorTotal.jpg"
+              alt="Ícone Valor Total"
+            />
+
+            <div className="resumo-text">
+              <div className="resumo-title">Valor Total</div>
+              <div className="resumo-value">R$ 97.944.779.641,77</div>
+            </div>
+          </div>
+
+          <div className="resumo-card">
+            <img
+              className="resumo-icon-img"
+              src="/imagens-cg/IconAreaTerreno.jpg"
+              alt="Ícone Área do Terreno"
+            />
+
+            <div className="resumo-text">
+              <div className="resumo-title">Área do Terreno</div>
+              <div className="resumo-value">7.617.790,94</div>
+            </div>
+          </div>
+        </div>
+
+        <a
+          className="looker-linkcard"
+          href="https://lookerstudio.google.com/u/0/reporting/e7c4b698-6d0f-41c3-92cc-5e882c02d6d1/page/1U2bF"
+          target="_blank"
+          rel="noreferrer"
+          aria-label="Abrir Looker do Centro de Campo Grande - MS"
+        >
+          <div className="looker-card">
+            <img
+              className="looker-flag"
+              src="/imagens-cg/BandeiraCampoGrandeMS.png"
+              alt="Bandeira de Campo Grande - MS"
+            />
+            <div className="looker-text">
+              <div className="looker-title">Looker do Centro de Campo Grande - MS</div>
+              <div className="looker-meta">PLANURB, 2025</div>
+              <div className="looker-desc">Para uma observação mais detalhada</div>
+            </div>
+          </div>
+        </a>
+      </div>
+
       {/* ===== CARD 1 ===== */}
       <section className="dados-card">
         <div className="chart-header-left">
@@ -313,7 +391,7 @@ export default function DadosCentro() {
                 {proprietariosImoveisQtd.map((item, i) => {
                   const maxY = 80;
                   const pct = Math.max(0, Math.min(100, (item.value / maxY) * 100));
-                  const valueText = `${item.value} imóveis`;
+                  const valueText = `${item.value} Imóveis`;
 
                   return (
                     <div className="bar-col" key={`qtd-${i}`}>
