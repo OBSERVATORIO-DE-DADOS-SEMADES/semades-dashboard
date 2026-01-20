@@ -148,6 +148,10 @@ export default function Root() {
 
       {/* MENU LATERAL */}
       <div className="side-menu no-print">
+        <button onClick={() => handleNavigate("/home")}>
+          Página Inicial
+        </button>
+
         <button onClick={() => handleNavigate("/superintendencias")}>
           Superintendências
         </button>

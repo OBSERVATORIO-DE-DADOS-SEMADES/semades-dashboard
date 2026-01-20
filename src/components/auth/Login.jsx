@@ -6,7 +6,8 @@ import GoogleAuth from "./Google_auth";
 const LOCALHOSTS = new Set(["localhost", "127.0.0.1", "::1"]);
 
 // ativa o modo admin localmente para testes
-const admin_mode = false;
+const admin_mode = true;
+
 
 
 const isLocalhost = () => {
@@ -34,7 +35,7 @@ function Login() {
         })
       );
     }
-    navigate("/dashboard");
+    navigate("/home");
   };
 
   useEffect(() => {
@@ -49,7 +50,7 @@ function Login() {
           provider: "local",
         })
       );
-      navigate("/dashboard");
+      navigate("/home");
       return;
     }
 
@@ -70,7 +71,7 @@ function Login() {
     const user = localStorage.getItem("authUser");
     const token = localStorage.getItem("authToken");
     if (user && token) {
-      navigate("/dashboard");
+      navigate("/home");
     }
   }, [navigate]);
 

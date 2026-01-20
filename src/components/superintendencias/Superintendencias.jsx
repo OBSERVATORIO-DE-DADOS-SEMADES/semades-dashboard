@@ -103,6 +103,7 @@ export default function Superintendencias() {
 
       {/* MENU LATERAL */}
       <div className="side-menu no-print">
+        <button onClick={() => handleNavigate("/home")}>Página Inicial</button>
         <button onClick={() => handleNavigate("/superintendencias")}>Superintendências</button>
         <button onClick={() => handleNavigate("/dashboard")}>Indicadores Observatório</button>
         <button onClick={() => handleNavigate("/dados-centro")}>Dados Centro</button>
