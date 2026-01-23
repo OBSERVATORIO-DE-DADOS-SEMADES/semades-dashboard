@@ -5,7 +5,6 @@ import "./styles/DadosCentro.css";
 import "./styles/Print.css";
 import EnvironmentCards from "./components/dashboard/EnvironmentCards";
 import EconomicSection from "./components/dashboard/EconomicSection";
-import IndicatorEvolution from "./components/dashboard/IndicatorEvolution";
 import DadosCentro from "./components/dados-centro/DadosCentro";
 
 const indicadores = [
@@ -301,10 +300,6 @@ export default function Root() {
             <EconomicSection />
             <EnvironmentCards />
           </section>
-
-          <aside className="environment-wrapper">
-            <IndicatorEvolution />
-          </aside>
         </>
       )}
     </div>
