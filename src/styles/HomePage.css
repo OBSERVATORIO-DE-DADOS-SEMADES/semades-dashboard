@@ -1,16 +1,16 @@
 /* ====== HOMEPAGE CONTAINER ====== */
 .homepage-container {
   max-width: 100%;
-  margin: 0 auto;
+  margin: 5 auto;
   padding: 1rem 0.5rem;
   min-height: 100vh;
 }
 
 .section-title {
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-weight: 700;
   color: #ffffff;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;  
   text-align: center;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
@@ -54,18 +54,20 @@
 
 .news-image img {
   width: 100%;
-  height: 100%;
+  height: 200px;
   object-fit: cover;
+  display: block;
+  border-radius: 6px;
 }
 
 .news-image-placeholder {
-  width: 100%;
-  height: 100%;
-  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 3rem;
-  color: rgba(255, 255, 255, 0.5);
+  height: 200px;
+  width: 100%;
+  background: #f0f0f0;
+  border-radius: 6px;
+  font-size: 28px;
 }
 
 .news-info {
@@ -462,66 +464,142 @@
 
 @media (max-width: 768px) {
   .homepage-container {
-    padding: 1rem 0.5rem;
+    padding: 12px;
   }
 
-  .section-title {
-    font-size: 1.5rem;
-  }
-
-  .carousel-slide {
-    min-height: auto;
-  }
-
-  .news-image {
-    height: 200px;
+  .news-carousel-section .section-title,
+  .calendar-section .section-title {
+    font-size: 18px;
   }
 
   .carousel-container {
-    height: 350px;
+    padding: 8px 0;
   }
 
-  .news-info {
-    padding: 1.5rem;
+  .carousel-content {
+    display: block;
+  }
+
+  .carousel-slide {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .news-image img,
+  .news-image-placeholder {
+    height: 160px;
   }
 
   .news-info h3 {
-    font-size: 1.25rem;
+    font-size: 16px;
+    margin: 6px 0;
+  }
+
+  .news-info p {
+    font-size: 13px;
+    margin-bottom: 8px;
   }
 
   .carousel-btn {
-    width: 40px;
-    height: 40px;
-    font-size: 1.5rem;
-    top: 100px;
+    padding: 6px 10px;
+    font-size: 20px;
   }
 
-  .carousel-btn.prev {
-    left: 10px;
+  .carousel-indicators {
+    gap: 6px;
+    margin-top: 8px;
   }
 
-  .carousel-btn.next {
-    right: 10px;
+  .carousel-indicators .indicator {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
   }
 
+  /* Empilha calendário + lista de eventos */
   .calendar-container {
-    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .calendar-main {
+    order: 1;
+  }
+
+  .events-list {
+    order: 2;
+    padding: 8px;
+    background: transparent;
   }
 
   .calendar-header h3 {
-    font-size: 1.25rem;
+    font-size: 16px;
   }
 
-  .calendar-day-header {
-    font-size: 0.8rem;
-    padding: 0.5rem;
+  .calendar-grid {
+    gap: 4px;
+  }
+
+  .calendar-day {
+    min-height: 44px;
+    padding: 6px;
   }
 
   .day-number {
-    font-size: 0.9rem;
+    font-size: 13px;
   }
 
-  .event-indicator {
-    font-size: 1.2rem;
+  .event-preview .event-date {
+    font-size: 14px;
+  }
+}
+
+/* Ajustes extra para telas muito pequenas */
+@media (max-width: 400px) {
+  .news-image img,
+  .news-image-placeholder {
+    height: 120px;
+  }
+
+  .news-info h3 {
+    font-size: 14px;
+  }
+
+  .news-info p {
+    font-size: 12px;
+  }
+
+  .calendar-day {
+    min-height: 40px;
+    padding: 4px;
+  }
+}
+
+/* Pequeno visual: indicador ativo mais visível */
+.carousel-indicators .indicator {
+  background: #ccc;
+  border: none;
+  cursor: pointer;
+  transition: background .2s;
+}
+.carousel-indicators .indicator.active {
+  background: #2a7ae2;
+}
+
+/* Reduz tamanho da logo pref. Campo Grande (prefcg1.png) nas páginas do dashboard */
+.logo-prefeitura,
+img[src*="prefcg1"] {
+  max-height: 64px;
+  height: auto;
+  width: auto;
+  display: inline-block;
+}
+
+@media (max-width: 768px) {
+  .logo-prefeitura,
+  img[src*="prefcg1"] {
+    max-height: 48px;
   }
 }

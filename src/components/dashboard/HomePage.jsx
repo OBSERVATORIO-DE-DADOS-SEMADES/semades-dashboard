@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import '../../styles/HomePage.css';
 
 export default function HomePage() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [selectedDate, setSelectedDate] = useState(null);
   const [currentMonth, setCurrentMonth] = useState(new Date());
+  const touchStartX = useRef(null);
 
   // Dados de exemplo para o carrossel de notícias
   const newsItems = [
@@ -65,6 +66,31 @@ export default function HomePage() {
     setCurrentSlide(index);
   };
 
+  // swipe handlers para mobile
+  const handleTouchStart = (e) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = (e) => {
+    if (touchStartX.current === null) return;
+    const touchEndX = e.changedTouches[0].clientX;
+    const diff = touchStartX.current - touchEndX;
+    if (Math.abs(diff) > 50) {
+      if (diff > 0) nextSlide();
+      else prevSlide();
+    }
+    touchStartX.current = null;
+  };
+
+  // Autoplay do carrossel a cada 4 segundos
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % newsItems.length);
+    }, 4000);
+
+    return () => clearInterval(intervalId);
+  }, [newsItems.length]);
+
   // Funções do calendário
   const getDaysInMonth = (date) => {
     const year = date.getFullYear();
@@ -115,7 +141,11 @@ export default function HomePage() {
       {/* Seção de Carrossel de Notícias */}
       <section className="news-carousel-section">
         <h2 className="section-title">Últimas Notícias</h2>
-        <div className="carousel-container">
+        <div
+          className="carousel-container"
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
+        >
           <button className="carousel-btn prev" onClick={prevSlide}>
             ‹
           </button>
@@ -141,7 +171,14 @@ export default function HomePage() {
                 <span className="news-date">{newsItems[currentSlide].date}</span>
                 <h3>{newsItems[currentSlide].title}</h3>
                 <p>{newsItems[currentSlide].description}</p>
-                <button className="read-more-btn">Ler mais</button>
+                <a
+                  href="https://www.semadesc.ms.gov.br/noticias/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="read-more-btn"
+                >
+                  Ler mais
+                </a>
               </div>
             </div>
           </div>
