@@ -31,8 +31,8 @@ body {
 }
 
 .dashboard-header h1 {
-  font-size: 3.2rem;
-  font-weight: 800;
+  font-size: 5.5rem;
+  font-weight: 900;
   line-height: 1.2;
   margin-bottom: 0.5rem;
   /* texto em branco em vez do degradê */
@@ -172,7 +172,7 @@ body {
 .dashboard-content,
 .economic-wrapper,
 .environment-wrapper {
-  margin-top: 70px;
+  margin-top: 5px;
 }
 
 
