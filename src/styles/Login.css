@@ -496,3 +496,40 @@ button:hover {
     padding: 0;
   }
 }
+
+/* Reduz tamanho dos indicadores (bolinhas) do carrossel de login */
+.login-right .carousel-controls .indicator,
+.login-right .carousel-container .indicator,
+.login-right .carousel-container .carousel-indicators button {
+  width: 8px;
+  height: 8px;
+  margin: 0 6px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.85);
+  border: none;
+  transition: transform .12s ease, background .12s;
+}
+
+/* indicador ativo um pouco maior e com cor do tema */
+.login-right .carousel-controls .indicator.active,
+.login-right .carousel-container .indicator.active {
+  width: 10px;
+  height: 10px;
+  background: #1976D2;
+  transform: scale(1.05);
+}
+
+/* ajuste para telas muito pequenas */
+@media (max-width: 480px) {
+  .login-right .carousel-controls .indicator,
+  .login-right .carousel-container .indicator {
+    width: 6px;
+    height: 6px;
+    margin: 0 4px;
+  }
+  .login-right .carousel-controls .indicator.active,
+  .login-right .carousel-container .indicator.active {
+    width: 8px;
+    height: 8px;
+  }
+}
