@@ -6,7 +6,7 @@ import GoogleAuth from "./Google_auth";
 const LOCALHOSTS = new Set(["localhost", "127.0.0.1", "::1"]);
 
 // ativa o modo admin localmente para testes
-const admin_mode = true;
+const admin_mode = false;
 
 
 
