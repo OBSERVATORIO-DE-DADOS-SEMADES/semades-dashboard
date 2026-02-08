@@ -254,11 +254,11 @@ export default function Root() {
           Sair
         </button>
 
-        <h1 className="titulo-degrade">{isDadosCentro ? "Dados Centro de Campo Grande - MS" : "Dashboard de Indicadores"}</h1>
+        <h1 className="titulo-degrade">{isDadosCentro ? "Dados Centro de Campo Grande - MS" : "Observatório de Desenvolvimento Econômico"}</h1>
         {isDadosCentro ? (
           <p>Visão Geral do Cadastro Imobiliário  • Fonte Municipal</p>
         ) : (
-          <p>Desenvolvimento Urbano e Sustentabilidade • Janeiro - Setembro 2025</p>
+          <p>SEMADES - Secretaria Municipal de Meio Ambiente, Gestão Urbana e Desenvolvimento Econômico, Turístico e Sustentável</p>
         )}
 
         {!isDadosCentro && (
