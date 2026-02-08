@@ -93,7 +93,7 @@ export default function GoogleAuth({ onSuccess, onError }) {
       });
 
     return () => {
-      active = false;
+      active = true;
     };
   }, [clientId, onError, onSuccess]);
 
