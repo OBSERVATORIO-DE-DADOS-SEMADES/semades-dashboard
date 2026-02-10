@@ -15,6 +15,9 @@ Próximas etapas:
 - Inserir links Looker Studio (Pedrinho)
 - Deploy final (Magnum)
 
+# Ferramentas Python para provisionar Node.js/NPM e permitir rodar `npm run *`
+npm install express mongoose bcryptjs jsonwebtoken dotenv nodemon
+
 ## Autores
 - Bianca Sabka
 - Magnum Abreu
