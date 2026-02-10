@@ -34,14 +34,14 @@ export default function EconomicSection() {
         {/* === CARD DE DADOS === */}
         <div className="economic-card info-card">
           <h3 className="economic-title">Desenvolvimento Econômico</h3>
-          <p className="economic-period">Acumulado: Ago/2024 - Jul/2025</p>
+          <p className="economic-period">Acumulado: Jan/2025 - Dez/2025</p>
 
           <div className="economic-item">
             <div className="economic-info">
               <span className="economic-icon">🏢</span>
               <span className="economic-label">Empresas Abertas</span>
             </div>
-            <span className="economic-value">4.000</span>
+            <span className="economic-value">13.143</span>
           </div>
 
           <div className="economic-item">
@@ -49,7 +49,7 @@ export default function EconomicSection() {
               <span className="economic-icon">👥</span>
               <span className="economic-label">Empregos Formais (Saldo)</span>
             </div>
-            <span className="economic-value">16.689</span>
+            <span className="economic-value">19.756 </span>
           </div>
 
           <div className="economic-item">
@@ -57,7 +57,7 @@ export default function EconomicSection() {
               <span className="economic-icon">📈</span>
               <span className="economic-label">Crescimento Percentual</span>
             </div>
-            <span className="economic-value">+2,45%</span>
+            <span className="economic-value">+5,2%</span>
           </div>
 
           <div className="economic-item">
@@ -65,7 +65,7 @@ export default function EconomicSection() {
               <span className="economic-icon">🏆</span>
               <span className="economic-label">Posição Nacional</span>
             </div>
-            <span className="economic-value">20º (Saldo) | 26º (Crescimento)</span>
+            <span className="economic-value">20º (Saldo) | 8º (Crescimento)</span>
           </div>
         </div>
 
