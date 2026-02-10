@@ -245,7 +245,7 @@ export default function HomePage() {
 
   return (
     <div className="homepage-container">
-      <section className="news-carousel-section">
+      <section className="news-carousel-section under-navbar">
         <div className="carousel-hero" onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}>
           {newsItems.map((item, idx) => (
             <div
