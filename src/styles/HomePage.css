@@ -86,30 +86,38 @@ body::before,
 /* ====== CARROSSEL DE NOTÍCIAS ====== */
 .news-carousel-section {
   position: relative;
-  width: 100vw;
-  margin-left: calc(50% - 50vw);
-  margin-right: calc(50% - 50vw);
-  margin-top: 0;
-  /* Removida a divisão por gradiente — usar cor sólida uniforme */
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.02) 100%);
-  padding: 3rem 0; /* sem espaçamento extra para logo */
-  overflow: hidden;
-  z-index: 1;
+  width: 100vw;                /* ocupa toda a largura da viewport */
+  left: 50%;
+  transform: translateX(-50%); /* centraliza corretamente no viewport */
+  margin: 0;                   /* remove margens que impedem o bleed */
+  padding: 0;                  /* remove padding superior para encostar na navbar */
+  overflow: visible;
+  z-index: 10;                 /* abaixo da navbar (navbar tem z-index:90) */
+}
+
+/* quando quiser que o carrossel fique parcialmente por baixo da navbar */
+.news-carousel-section.under-navbar {
+  margin-top: -72px;   /* "puxa" o carrossel para cima, ficando por baixo da navbar */
+  padding-top: 72px;   /* mantém espaçamento interno equivalente à altura da navbar */
 }
 
 /* container interno que mantém slides sobrepostos */
 .carousel-hero {
   position: relative;
-  max-width: 1400px;
+  width: 100%;
+  max-width: 100%;
   margin: 0 auto;
-  height: 420px;
+  height: 520px;        /* aumentado para fotos maiores */
   display: block;
+  box-sizing: border-box;
 }
 
 /* cada slide ocupa toda a área, com background-image */
 .carousel-slide {
   position: absolute;
   inset: 0;
+  width: 100%;
+  height: 100%;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -121,7 +129,7 @@ body::before,
   justify-content: flex-start;
   padding-left: 6.5rem;
   box-sizing: border-box;
-  border-radius: 6px;
+  border-radius: 0; /* sem radius para chegar até a borda */
 }
 
 /* slide visível */
@@ -227,25 +235,14 @@ body::before,
   position: relative;
   margin-top: 1rem;
   display: flex;
-  justify-content: center; /* garante centralização horizontal */
+  justify-content: center;
   align-items: center;
-}
-
-.hero-bottom .hero-logo.semades-logo {
-  max-height: 80px;   /* ajuste o valor se quiser maior/menor */
-  width: auto;
-  display: block;
-  margin: 0 auto;
-  background: transparent; /* remove fundo branco caso a imagem já tenha */
-  padding: 4px;
-  border-radius: 6px;
-  box-shadow: 0 8px 22px rgba(0,0,0,0.12);
-  animation: fadeInUp 600ms ease-out 300ms forwards;
+  width: 100%;
 }
 
 /* responsividade */
 @media (max-width: 1024px) {
-  .carousel-hero { height: 360px; padding-left: 3.5rem; }
+  .carousel-hero { height: 460px; padding-left: 3.5rem; } /* ajustado para telas médias */
   .hero-content h3 { font-size: 1.6rem; }
 }
 @media (max-width: 768px) {
@@ -255,7 +252,7 @@ body::before,
     margin-right: 0;
     padding-bottom: 2.5rem;
   }
-  .carousel-hero { height: 260px; padding-left: 1rem; padding-right: 1rem; }
+  .carousel-hero { height: 360px; padding-left: 1rem; padding-right: 1rem; } /* mobile/tablet */
   .carousel-slide { padding-left: 1rem; padding-right: 1rem; border-radius: 0; }
   .hero-content { max-width: 100%; background: rgba(255,255,255,0.02); color: #003a6b; box-shadow:none; }
   .hero-content h3 { color: #003a6b; font-size: 1.05rem; }
