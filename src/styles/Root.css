@@ -38,6 +38,7 @@ body {
   /* texto em branco em vez do degradê */
   color: #ffffff;
   background: none;
+  background-clip: initial;
   -webkit-background-clip: initial;
   -webkit-text-fill-color: initial;
   text-shadow: none;
@@ -178,6 +179,7 @@ body {
 
 .titulo-degrade {
   background: linear-gradient(90deg, #0091ea 0%, #00bfa5 100%);
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   display: inline-block;

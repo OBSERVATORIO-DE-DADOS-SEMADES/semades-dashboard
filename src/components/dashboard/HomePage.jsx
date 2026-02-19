@@ -245,7 +245,7 @@ export default function HomePage() {
   ];
 
   return (
-    <div className="homepage-container">
+    <>
       <section className="news-carousel-section under-navbar">
         <div className="carousel-hero" onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}>
           {newsItems.map((item, idx) => (
@@ -318,8 +318,8 @@ export default function HomePage() {
       </section>
 
       <div className="homepage-container">
-      {/* Seção de Calendário com Notas (agora começa após o hero/logo) */}
-      <section className="calendar-section">
+        {/* Seção de Calendário com Notas (agora começa após o hero/logo) */}
+        <section className="calendar-section">
         <h2 className="section-title">Calendário e Publicações</h2>
         <div className="calendar-container">
           {/* Calendário Principal */}
