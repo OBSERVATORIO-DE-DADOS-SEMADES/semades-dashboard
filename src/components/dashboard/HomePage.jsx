@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import '../../styles/HomePage.css';
+import EventCarousel from './EventCarousel';
 
 export default function HomePage() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -288,16 +289,35 @@ export default function HomePage() {
           </div>
         </div>
 
-        {/* logo centralizada que "penca" sobre o início do calendário */}
-        <div className="hero-bottom" aria-hidden="false">
-          <img
-            src="/logo/semades-prefcg.png"
-            alt="SEMADESC / Prefeitura"
-            className="hero-logo semades-logo"
-          />
+      </section>
+
+      {/* Seção Sobre - Observatório Econômico */}
+      <section className="about-observatory-section">
+        <div className="about-observatory-container">
+          <div className="about-observatory-text">
+            <h2>Observatório Econômico da SEMADES</h2>
+            <p>
+              O Observatório Econômico da SEMADES é uma ferramenta estratégica de gestão ambiental e desenvolvimento sustentável. Através da análise contínua de dados econômicos e ambientais, monitoramos indicadores essenciais para a sustentabilidade de Campo Grande.
+            </p>
+            <p>
+              Nossa missão é fornecer informações precisas e atualizadas que subsidiem a tomada de decisões sobre políticas públicas, investimentos estratégicos e parcerias para o desenvolvimento equilibrado da capital mato-grossense.
+            </p>
+            <p>
+              Com tecnologia de ponta e dedicação ao bem-estar coletivo, transformamos dados em insights valiosos para construir um futuro mais verde e próspero.
+            </p>
+          </div>
+          
+          <div className="about-observatory-image">
+            <img 
+              src="/imagens-cg/semades-about-bg.jpg" 
+              alt="SEMADES - Observatório Econômico" 
+              className="about-img"
+            />
+          </div>
         </div>
       </section>
 
+      <div className="homepage-container">
       {/* Seção de Calendário com Notas (agora começa após o hero/logo) */}
       <section className="calendar-section">
         <h2 className="section-title">Calendário e Publicações</h2>
@@ -425,6 +445,9 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Seção de Eventos Animados do Host */}
+      <EventCarousel />
+
       {/* ===== Modal de criação de nota (apenas demonstração em memória) ===== */}
       {showNoteModal && (
         <div className="note-modal-overlay" onClick={() => setShowNoteModal(false)}>
@@ -519,6 +542,7 @@ export default function HomePage() {
           </div>
         </div>
       )}
-    </div>
+      </div>
+    </>
   );
 }
