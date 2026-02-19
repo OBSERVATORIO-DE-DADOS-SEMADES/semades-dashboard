@@ -309,7 +309,7 @@ export default function HomePage() {
           
           <div className="about-observatory-image">
             <img 
-              src="/imagens-cg/campo1.jpg" 
+              src="/imagens-cg/semades-about-bg.jpg" 
               alt="SEMADES - Observatório Econômico" 
               className="about-img"
             />
