@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import '../../styles/HomePage.css';
 import EventCarousel from './EventCarousel';
+import Noticias from './Noticias';
 
 export default function HomePage() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -316,6 +317,8 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      <Noticias />
 
       <div className="homepage-container">
         {/* Seção de Calendário com Notas (agora começa após o hero/logo) */}
