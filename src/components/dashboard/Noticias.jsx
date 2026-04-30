@@ -7,7 +7,8 @@ const noticias = [
     titulo: "Campo Grande sedia encontro nacional sobre primeira inf\u00e2ncia",
     descricao:
       "Capital recebe encontro nacional com foco em pol\u00edticas p\u00fablicas, cuidado integral e desenvolvimento das crian\u00e7as.",
-    imagem: "/imagens-cg/campo1.jpg",
+    imagem: "/imagens-cg/noticias/noticia1.jpg",
+    alt: "Audit\u00f3rio lotado durante encontro nacional sobre primeira inf\u00e2ncia em Campo Grande",
     link: "https://www.campogrande.ms.gov.br/cgnoticias/noticia/campo-grande-sedia-encontro-nacional-sobre-primeira-infancia/",
     destaque: true,
   },
@@ -16,7 +17,8 @@ const noticias = [
     titulo: "PrefCG firma conv\u00eanio com maternidade para atender m\u00e3es at\u00edpicas",
     descricao:
       "Parceria amplia acolhimento e suporte especializado para m\u00e3es e fam\u00edlias que precisam de atendimento integrado.",
-    imagem: "/imagens-cg/campo2.jpg",
+    imagem: "/imagens-cg/noticias/noticia2.jpg",
+    alt: "Representantes da Prefeitura assinam conv\u00eanio em sala de reuni\u00e3o",
     link: "https://www.campogrande.ms.gov.br/cgnoticias/noticia/prefcg-firma-convenio-com-maternidade-para-atender-maes-atipicas/",
   },
   {
@@ -24,7 +26,8 @@ const noticias = [
     titulo: "Sisep intensifica a\u00e7\u00f5es de limpeza e drenagem ap\u00f3s chuva intensa",
     descricao:
       "Equipes atuam em pontos estrat\u00e9gicos da cidade para recuperar vias, bocas de lobo e \u00e1reas afetadas.",
-    imagem: "/imagens-cg/campo3.jpg",
+    imagem: "/imagens-cg/noticias/noticia3.jpg",
+    alt: "Equipes da Sisep realizam limpeza de galhos e drenagem em via urbana",
     link: "https://www.campogrande.ms.gov.br/cgnoticias/noticia/sisep-intensifica-acoes-de-limpeza-e-drenagem-apos-chuva-intensa/",
   },
   {
@@ -32,7 +35,8 @@ const noticias = [
     titulo: "Pra\u00e7a Ary Coelho virou ponto central da vacina\u00e7\u00e3o no Dia D na Capital",
     descricao:
       "A\u00e7\u00e3o levou atendimento a regi\u00e3o central e refor\u00e7ou a import\u00e2ncia da imuniza\u00e7\u00e3o para a popula\u00e7\u00e3o.",
-    imagem: "/imagens-cg/campo4.jpg",
+    imagem: "/imagens-cg/noticias/noticia4.jpg",
+    alt: "Unidade m\u00f3vel de vacina\u00e7\u00e3o atende moradores na Pra\u00e7a Ary Coelho",
     link: "https://www.campogrande.ms.gov.br/cgnoticias/noticia/praca-ary-coelho-virou-ponto-central-da-vacinacao-no-dia-d-na-capital/",
   },
 ];
@@ -49,7 +53,7 @@ function NoticiaCard({ noticia, variant = "side" }) {
       aria-label={`Ler not\u00edcia: ${noticia.titulo}`}
     >
       <div className="noticias-card-image">
-        <img src={noticia.imagem} alt={noticia.titulo} loading="lazy" />
+        <img src={noticia.imagem} alt={noticia.alt} loading="lazy" />
       </div>
 
       <div className="noticias-card-content">
