@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import "../../styles/Superintendencias.css";
+import HeaderNavTabs from "../navigation/HeaderNavTabs";
 
 export default function Superintendencias() {
   const navigate = useNavigate();
@@ -22,11 +23,6 @@ export default function Superintendencias() {
 
   const closeMenu = () => {
     document.body.classList.remove("menu-open");
-  };
-
-  const handleNavigate = (path) => {
-    navigate(path);
-    closeMenu();
   };
 
   const handleLogout = () => {
@@ -94,6 +90,8 @@ export default function Superintendencias() {
           <img src="/logo/prefcg1.png" alt="Prefeitura" className="navbar-logo" />
         </div>
 
+        <HeaderNavTabs />
+
         <div className="navbar-burger" onClick={toggleMenu}>
           <span></span>
           <span></span>
@@ -103,10 +101,6 @@ export default function Superintendencias() {
 
       {/* MENU LATERAL */}
       <div className="side-menu no-print">
-        <button onClick={() => handleNavigate("/home")}>Página Inicial</button>
-        <button onClick={() => handleNavigate("/superintendencias")}>Superintendências</button>
-        <button onClick={() => handleNavigate("/dashboard")}>Indicadores Observatório</button>
-        <button onClick={() => handleNavigate("/dados-centro")}>Dados Centro</button>
         <button
           onClick={() => {
             handleExport();
@@ -133,66 +127,6 @@ export default function Superintendencias() {
       <div id="print-header" className="print-header no-print" aria-hidden="true"></div>
 
       <header className="dashboard-header">
-        {/* Botão Exportar no header */}
-        <button
-          onClick={handleExport}
-          className="no-print"
-          style={{
-            position: "absolute",
-            top: "20px",
-            right: "120px",
-            background: "#fff",
-            border: "1px solid #e0e0e0",
-            color: "#222",
-            padding: "8px 12px",
-            borderRadius: "8px",
-            fontWeight: "600",
-            cursor: "pointer",
-            boxShadow: "0 2px 8px rgba(249, 220, 220, 0.06)",
-            transition: "0.18s",
-          }}
-          onMouseOver={(e) => {
-            e.target.style.transform = "scale(1.03)";
-            e.target.style.boxShadow = "0 4px 12px rgba(0, 0, 0, 0.12)";
-          }}
-          onMouseOut={(e) => {
-            e.target.style.transform = "scale(1)";
-            e.target.style.boxShadow = "0 2px 8px rgba(0, 0, 0, 0.06)";
-          }}
-        >
-          Exportar
-        </button>
-
-        {/* Botão Sair no header */}
-        <button
-          onClick={handleLogout}
-          className="no-print"
-          style={{
-            position: "absolute",
-            top: "20px",
-            right: "20px",
-            background: "linear-gradient(90deg, #0091ea 0%, #00bfa5 100%)",
-            border: "none",
-            color: "white",
-            padding: "8px 14px",
-            borderRadius: "8px",
-            fontWeight: "600",
-            cursor: "pointer",
-            boxShadow: "0 2px 8px rgba(0, 0, 0, 0.2)",
-            transition: "0.3s",
-          }}
-          onMouseOver={(e) => {
-            e.target.style.transform = "scale(1.05)";
-            e.target.style.boxShadow = "0 4px 12px rgba(0, 0, 0, 0.25)";
-          }}
-          onMouseOut={(e) => {
-            e.target.style.transform = "scale(1)";
-            e.target.style.boxShadow = "0 2px 8px rgba(0, 0, 0, 0.2)";
-          }}
-        >
-          Sair
-        </button>
-
         <h1 className="titulo-degrade">Central das Superintendências</h1>
         <p>Clique no card que deseja para mais informações sobre a superintendencia solicitada</p>
 
