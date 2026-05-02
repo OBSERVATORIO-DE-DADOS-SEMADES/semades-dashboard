@@ -258,7 +258,6 @@ export default function HomePage() {
             >
               <div className="hero-overlay" />
               <div className="hero-content">
-                <span className="news-date">{item.date}</span>
                 <h3>{item.title}</h3>
                 <p>{item.description}</p>
                 <a
