@@ -97,6 +97,69 @@
   margin-bottom: 0.5rem;
 }
 
+.chart-title-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.year-filter {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.year-filter-button {
+  min-width: 72px;
+  padding: 0.4rem 0.75rem;
+  border: 1px solid #dbe4f0;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #1e3a8a;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.year-filter-button:hover,
+.year-filter-button:focus {
+  background: #f1f5ff;
+  border-color: #93c5fd;
+  outline: none;
+}
+
+.year-filter-options {
+  position: absolute;
+  top: calc(100% + 0.35rem);
+  right: 0;
+  z-index: 5;
+  min-width: 72px;
+  padding: 0.25rem;
+  background: #ffffff;
+  border: 1px solid #dbe4f0;
+  border-radius: 8px;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+}
+
+.year-filter-option {
+  width: 100%;
+  padding: 0.4rem 0.6rem;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: #1e3a8a;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: left;
+}
+
+.year-filter-option:hover,
+.year-filter-option:focus,
+.year-filter-option.active {
+  background: #f1f5ff;
+  outline: none;
+}
+
 .chart-container {
   flex: 1;
   width: 100%;
