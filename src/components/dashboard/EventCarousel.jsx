@@ -1,11 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React, { useMemo, useState } from 'react';
 import '../../styles/EventCarousel.css';
 
-export default function EventCarousel() {
+const formatEventDate = (date) =>
+  new Intl.DateTimeFormat('pt-BR', {
+    day: '2-digit',
+    month: 'long',
+  }).format(date);
+
+export default function EventCarousel({ userNotes = [] }) {
   const [selectedEvent, setSelectedEvent] = useState(null);
 
   // Dados de exemplo de eventos do Host
-  const [hostEvents] = useState([
+  const hostEvents = [
     {
       id: 1,
       title: 'Reunião Ambiental',
@@ -61,7 +67,24 @@ export default function EventCarousel() {
       contact: '(67) 3314-8004',
       link: 'https://www.semadesc.ms.gov.br/visitas'
     },
-  ]);
+  ];
+
+  const events = useMemo(() => {
+    const mappedNotes = userNotes.map((note, index) => ({
+      id: note.id,
+      title: note.title,
+      date: formatEventDate(note.date),
+      time: 'Nota adicionada',
+      location: note.note || 'Sem observação informada',
+      icon: '📝',
+      color: ['blue', 'teal', 'cyan', 'green', 'purple'][index % 5],
+      contact: null,
+      link: note.attachments?.find((att) => att.type === 'link')?.url || null,
+      isUserNote: true,
+    }));
+
+    return [...hostEvents, ...mappedNotes];
+  }, [hostEvents, userNotes]);
 
   return (
     <section className="event-carousel-section">
@@ -70,7 +93,7 @@ export default function EventCarousel() {
       <div className="events-carousel-wrapper">
         <div className="events-carousel-track">
           {/* Duplicamos os eventos para criar efeito contínuo */}
-          {[...hostEvents, ...hostEvents].map((event, idx) => (
+          {[...events, ...events].map((event, idx) => (
             <div 
               key={`${event.id}-${idx}`} 
               className={`event-card event-card-${event.color}`}
@@ -134,15 +157,21 @@ export default function EventCarousel() {
                 <div className="modal-info-item">
                   <span className="modal-info-icon">🕐</span>
                   <div className="modal-info-details">
-                    <span className="modal-label">Horário</span>
+                    <span className="modal-label">
+                      {selectedEvent.isUserNote ? 'Tipo' : 'Horário'}
+                    </span>
                     <span className="modal-value">{selectedEvent.time}</span>
                   </div>
                 </div>
 
                 <div className="modal-info-item">
-                  <span className="modal-info-icon">📍</span>
+                  <span className="modal-info-icon">
+                    {selectedEvent.isUserNote ? '🗒️' : '📍'}
+                  </span>
                   <div className="modal-info-details">
-                    <span className="modal-label">Local</span>
+                    <span className="modal-label">
+                      {selectedEvent.isUserNote ? 'Observação' : 'Local'}
+                    </span>
                     <span className="modal-value">{selectedEvent.location}</span>
                   </div>
                 </div>

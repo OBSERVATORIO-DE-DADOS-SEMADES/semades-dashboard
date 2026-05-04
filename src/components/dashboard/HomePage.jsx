@@ -37,13 +37,6 @@ export default function HomePage() {
       date: '18/01/2026',
     },
     {
-      id: 3,
-      title: 'Expansão Urbana Planejada',
-      description: 'Desenvolvimento integrado que combina crescimento econômico com preservação ambiental.',
-      image: '/imagens-cg/campo3.jpg',
-      date: '15/01/2026',
-    },
-    {
       id: 4,
       title: 'Campo Grande em Crescimento',
       description: 'A capital do estado investe em infraestrutura moderna e qualidade de vida para seus cidadãos.',
@@ -180,6 +173,17 @@ export default function HomePage() {
     };
   }, [notes]);
 
+  useEffect(() => {
+    if (!showNoteModal) return undefined;
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [showNoteModal]);
+
   // Navegação do carrossel
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % newsItems.length);
@@ -260,14 +264,6 @@ export default function HomePage() {
               <div className="hero-content">
                 <h3>{item.title}</h3>
                 <p>{item.description}</p>
-                <a
-                  href="https://www.semadesc.ms.gov.br/noticias/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="read-more-btn"
-                >
-                  Ler mais
-                </a>
               </div>
             </div>
           ))}
@@ -448,7 +444,7 @@ export default function HomePage() {
       </section>
 
       {/* Seção de Eventos Animados do Host */}
-      <EventCarousel />
+      <EventCarousel userNotes={notes} />
 
       {/* ===== Modal de criação de nota (apenas demonstração em memória) ===== */}
       {showNoteModal && (
