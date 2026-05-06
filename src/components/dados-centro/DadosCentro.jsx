@@ -24,44 +24,44 @@ export default function DadosCentro() {
   ];
 
   const proprietarios = [
-    { label: "Ministério do Exército", value: 22.9 },
-    { label: "Vista XV Empreendimentos Imobiliários LTDA", value: 17.8 },
-    { label: "Trier Empreendimentos Imobiliários Limitada", value: 15.4 },
-    { label: "Espólio de Myrthes Carvalho de Oliveira", value: 9.1 },
-    { label: "Olga Maria Lemos Siufi", value: 8.1 },
-    { label: "Alvaro Haverroth Hilgert", value: 7.4 },
-    { label: "Condomínio Edifício Geneve", value: 6.1 },
-    { label: "Ivan Paes Barbosa", value: 4.6 },
-    { label: "Marcílio Mendonça", value: 4.4 },
-    { label: "Ilson Francisco Venturin Carloto", value: 4.2 },
+    { label: "Proprietário 1", value: 22.9 },
+    { label: "Proprietário 2", value: 17.8 },
+    { label: "Proprietário 3", value: 15.4 },
+    { label: "Proprietário 4", value: 9.1 },
+    { label: "Proprietário 5", value: 8.1 },
+    { label: "Proprietário 6", value: 7.4 },
+    { label: "Proprietário 7", value: 6.1 },
+    { label: "Proprietário 8", value: 4.6 },
+    { label: "Proprietário 9", value: 4.4 },
+    { label: "Proprietário 10", value: 4.2 },
   ];
 
   // ====== NOVO GRÁFICO 1 (0 a 80) ======
   const proprietariosImoveisQtd = [
-    { label: "Ministério do Exército", value: 76 },
-    { label: "Vista XV Empreendimentos Imobiliários LTDA", value: 70 },
-    { label: "Trier Empreendimentos Imobiliários Limitada", value: 29 },
-    { label: "Morais dos Santos Empreendimentos e Administração de Imóveis Próprios LTDA", value: 19 },
-    { label: "Jorge João Rezek", value: 19 },
-    { label: "Olga Maria Lemos Siufi", value: 19 },
-    { label: "Ivan Paes Barbosa", value: 17 },
-    { label: "Vicosa Administradora de Imóveis LTDA EPP", value: 16 },
-    { label: "Janio Cardoso Goncalves", value: 15 },
-    { label: "6F Participações e Empreendimentos LTDA", value: 15 },
+    { label: "Proprietário 1", value: 76 },
+    { label: "Proprietário 2", value: 70 },
+    { label: "Proprietário 3", value: 29 },
+    { label: "Proprietário 11", value: 19 },
+    { label: "Proprietário 12", value: 19 },
+    { label: "Proprietário 5", value: 19 },
+    { label: "Proprietário 8", value: 17 },
+    { label: "Proprietário 13", value: 16 },
+    { label: "Proprietário 14", value: 15 },
+    { label: "Proprietário 15", value: 15 },
   ];
 
   // ====== NOVO GRÁFICO 2 (0 a 1,5 bi) ======
   const proprietariosValorAcumulado = [
-    { label: "Vista XV Empreendimentos Imobiliários LTDA", value: 1340667021.4 },
-    { label: "Ministério do Exército", value: 1082413341.56 },
-    { label: "Trier Empreendimentos Imobiliários Limitada", value: 868224650.52 },
-    { label: "Ilson Francisco Venturin Carloto", value: 361292566.45 },
-    { label: "Paula Micheli Fancelli", value: 281296195.37 },
-    { label: "Condomínio Edifício Geneve", value: 254680867.43 },
-    { label: "Neire Alves de Lima", value: 218213578.35 },
-    { label: "Jaime Khalil Jacob", value: 215669497.41 },
-    { label: "Patrice Koester dos Santos Pereira", value: 215669497.41 },
-    { label: "Aliomar Coelho Pereira", value: 196880093.88 },
+    { label: "Proprietário 2", value: 1340667021.4 },
+    { label: "Proprietário 1", value: 1082413341.56 },
+    { label: "Proprietário 3", value: 868224650.52 },
+    { label: "Proprietário 10", value: 361292566.45 },
+    { label: "Proprietário 16", value: 281296195.37 },
+    { label: "Proprietário 7", value: 254680867.43 },
+    { label: "Proprietário 17", value: 218213578.35 },
+    { label: "Proprietário 18", value: 215669497.41 },
+    { label: "Proprietário 19", value: 215669497.41 },
+    { label: "Proprietário 20", value: 196880093.88 },
   ];
 
   const radius = 140;
