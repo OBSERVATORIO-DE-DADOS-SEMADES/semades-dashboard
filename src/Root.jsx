@@ -22,10 +22,10 @@ const indicadores = [
     icone: "💼",
     cor: "economia",
     titulo: "Empregos",
-    fonte: "CAGED, 2025",
+    fonte: "CAGED, 2026",
     subtitulo: "Geração de empregos formais e informais",
     posicao: "2º",
-    link: "https://lookerstudio.google.com/reporting/bb526010-5c89-4b87-93d9-c75dd8a571bb/page/mT2bF",
+    link: "https://lookerstudio.google.com/reporting/38fdf9ca-ce21-4bb8-8c32-26a0cf7cbe86",
   },
   {
     icone: "🐄",
@@ -71,7 +71,7 @@ const indicadores = [
     subtitulo:
       "Programa de incentivos para o desenvolvimento econômico e social de Campo Grande",
     posicao: "7º",
-    link: "https://lookerstudio.google.com/reporting/a31d117e-2e39-46dd-832d-ce27398cd59c",
+    link: "https://lookerstudio.google.com/reporting/23713d3b-62be-4e85-bec0-49d87b8e4e43/page/rrOeF",
   },
 ];
 
