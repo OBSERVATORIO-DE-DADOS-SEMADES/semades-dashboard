@@ -13,6 +13,10 @@ body {
   min-height: 100vh;
 }
 
+#root {
+  min-height: 100vh;
+}
+
 .login-status {
   position: fixed;
   left: 16px;
@@ -117,4 +121,51 @@ footer {
 .dashboard-link:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 16px rgba(11, 114, 133, 0.25);
+}
+
+.maintenance-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, #0d1b2a 0%, #1a3a52 25%, #0f5a7a 50%, #044a6a 75%, #01202a 100%);
+}
+
+.maintenance-card {
+  width: min(520px, 100%);
+  padding: 2rem;
+  border-radius: 20px;
+  text-align: center;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.28);
+}
+
+.maintenance-warning {
+  width: min(168px, 42%);
+  height: auto;
+  margin-bottom: 1rem;
+}
+
+.maintenance-eyebrow {
+  margin: 0 0 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  opacity: 0.8;
+}
+
+.maintenance-card h1 {
+  margin: 0 0 1rem;
+  font-size: 2rem;
+}
+
+.maintenance-card p {
+  margin: 0;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.9);
 }
