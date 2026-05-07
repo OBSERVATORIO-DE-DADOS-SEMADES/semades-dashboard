@@ -2,6 +2,11 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "../../styles/Login.css";
 import GoogleAuth from "./Google_auth";
+import {
+  getGoogleAccessMessage,
+  hasConfiguredGoogleAccessRules,
+  isAuthorizedGoogleProfile,
+} from "../../services/authAccess";
 
 const LOCALHOSTS = new Set(["localhost", "127.0.0.1", "::1"]);
 
@@ -23,6 +28,13 @@ function Login() {
   const navigate = useNavigate();
 
   const handleGoogleLogin = ({ credential, profile }) => {
+    if (!isAuthorizedGoogleProfile(profile)) {
+      localStorage.removeItem("authToken");
+      localStorage.removeItem("authUser");
+      setErro(getGoogleAccessMessage());
+      return;
+    }
+
     if (credential) localStorage.setItem("authToken", credential);
     if (profile) {
       localStorage.setItem(
@@ -153,6 +165,8 @@ function Login() {
             {erro && <p className="login-error">{erro}</p>}
             {admin_mode && isLocalhost() ? (
               <p className="login-helper">Acesso local detectado. Entrando como admin...</p>
+            ) : !hasConfiguredGoogleAccessRules ? (
+              <p className="login-helper">{getGoogleAccessMessage()}</p>
             ) : (
               <GoogleAuth onSuccess={handleGoogleLogin} onError={setErro} />
             )}

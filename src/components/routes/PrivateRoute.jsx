@@ -1,4 +1,5 @@
 import { Navigate } from "react-router-dom";
+import { isAuthorizedGoogleProfile } from "../../services/authAccess";
 
 const LOCALHOSTS = new Set(["localhost", "127.0.0.1", "::1"]);
 const isLocalhost = () => {
@@ -10,7 +11,17 @@ const isLocalhost = () => {
 function PrivateRoute({ element }) {
   const user = localStorage.getItem("authUser");
   const token = localStorage.getItem("authToken");
-  const isAuth = Boolean(user && token);
+  let parsedUser = null;
+
+  try {
+    parsedUser = user ? JSON.parse(user) : null;
+  } catch {
+    parsedUser = null;
+  }
+
+  const isAuthorizedUser =
+    parsedUser?.provider === "local" || isAuthorizedGoogleProfile(parsedUser);
+  const isAuth = Boolean(parsedUser && token && isAuthorizedUser);
 
   if (isLocalhost()) {
     if (!isAuth) {
