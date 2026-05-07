@@ -4,7 +4,18 @@ const parseCsv = (value) =>
     .map((item) => item.trim().toLowerCase())
     .filter(Boolean);
 
-const allowedEmails = new Set(parseCsv(import.meta.env.VITE_ALLOWED_GOOGLE_EMAILS));
+const fallbackAllowedEmails = [
+  "biancasabka@gmail.com",
+  "pedroantoniofalves@gmail.com",
+  "miguelmcmatos@gmail.com",
+  "sweam_miranda@hotmail.com",
+  "otofcs@gmail.com",
+];
+
+const configuredEmails = parseCsv(import.meta.env.VITE_ALLOWED_GOOGLE_EMAILS);
+const allowedEmails = new Set(
+  configuredEmails.length > 0 ? configuredEmails : fallbackAllowedEmails
+);
 const allowedDomains = new Set(parseCsv(import.meta.env.VITE_ALLOWED_GOOGLE_DOMAINS));
 
 export const hasConfiguredGoogleAccessRules =
@@ -39,4 +50,3 @@ export function getGoogleAccessMessage() {
 
   return "Acesso restrito a contas Google autorizadas pela SEMADES.";
 }
-
