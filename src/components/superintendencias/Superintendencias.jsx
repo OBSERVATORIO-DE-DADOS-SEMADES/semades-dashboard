@@ -2,6 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import "../../styles/Superintendencias.css";
 import HeaderNavTabs from "../navigation/HeaderNavTabs";
+import Footer from "../navigation/Footer";
 
 export default function Superintendencias() {
   const navigate = useNavigate();
@@ -157,6 +158,7 @@ export default function Superintendencias() {
           ))}
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

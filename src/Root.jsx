@@ -7,6 +7,7 @@ import EnvironmentCards from "./components/dashboard/EnvironmentCards";
 import EconomicSection from "./components/dashboard/EconomicSection";
 import DadosCentro from "./components/dados-centro/DadosCentro";
 import HeaderNavTabs from "./components/navigation/HeaderNavTabs";
+import Footer from "./components/navigation/Footer";
 
 const indicadores = [
   {
@@ -224,6 +225,8 @@ export default function Root() {
           </section>
         </>
       )}
+
+      <Footer />
     </div>
   );
 }
