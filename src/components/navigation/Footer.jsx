@@ -62,14 +62,11 @@ export default function Footer() {
       <div className="semades-footer-content">
         <div className="semades-footer-main">
           <section className="semades-footer-address" aria-label="Endere\u00e7o">
-            <div className="semades-footer-address-icon" aria-hidden="true">
-              <FooterIcon>
-                <path d="M4 21V7L12 3L20 7V21" />
-                <path d="M8 21V11H16V21" />
-                <path d="M9 7H9.01" />
-                <path d="M12 7H12.01" />
-                <path d="M15 7H15.01" />
-              </FooterIcon>
+            <div className="semades-footer-address-icon">
+              <img
+                src="/logo/footer-address-icon.png"
+                alt="Ícone institucional de endereço"
+              />
             </div>
             <p>R. Mal. Rondon, 2655 - Centro, Campo Grande - MS, Brasil</p>
           </section>
@@ -103,6 +100,7 @@ export default function Footer() {
           <span> © Semades Dashboard</span>
           <nav aria-label="Links institucionais do rodap\u00e9">
             <a href="#">Lei Geral de Proteção de Dados</a>
+            <span className="footer-separator" aria-hidden="true">|</span>
             <a href="#">Política de Privacidade</a>
           </nav>
         </div>
