@@ -100,10 +100,10 @@ export default function Footer() {
         </div>
 
         <div className="semades-footer-bottom">
-          <span>\u00a9 Semades Dashboard</span>
+          <span> © Semades Dashboard</span>
           <nav aria-label="Links institucionais do rodap\u00e9">
-            <a href="#">Lei Geral de Prote\u00e7\u00e3o de Dados</a>
-            <a href="#">Pol\u00edtica de Privacidade</a>
+            <a href="#">Lei Geral de Proteção de Dados</a>
+            <a href="#">Política de Privacidade</a>
           </nav>
         </div>
       </div>
