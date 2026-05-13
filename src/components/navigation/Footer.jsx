@@ -64,8 +64,8 @@ export default function Footer() {
           <section className="semades-footer-address" aria-label="Endere\u00e7o">
             <div className="semades-footer-address-icon">
               <img
-                src="/logo/footer-address-icon.png"
-                alt="Ícone institucional de endereço"
+                src="/logo/IconLocalRodape.png"
+                alt="Ícone de localização institucional"
               />
             </div>
             <p>R. Mal. Rondon, 2655 - Centro, Campo Grande - MS, Brasil</p>
