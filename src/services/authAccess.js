@@ -10,6 +10,8 @@ const fallbackAllowedEmails = [
   "miguelmcmatos@gmail.com",
   "sweam_miranda@hotmail.com",
   "otofcs@gmail.com",
+  "pedroantoniofalves@gmail.com",
+  "oehmen123@gmail.com",
 ];
 
 const configuredEmails = parseCsv(import.meta.env.VITE_ALLOWED_GOOGLE_EMAILS);
