@@ -193,7 +193,6 @@ export default function DadosCentro() {
 
         <a
           className="looker-linkcard"
-          href="https://lookerstudio.google.com/u/0/reporting/e7c4b698-6d0f-41c3-92cc-5e882c02d6d1/page/1U2bF"
           target="_blank"
           rel="noreferrer"
           aria-label="Abrir Looker do Centro de Campo Grande - MS"
