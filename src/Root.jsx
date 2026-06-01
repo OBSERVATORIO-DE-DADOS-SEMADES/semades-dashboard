@@ -64,16 +64,6 @@ const indicadores = [
     posicao: "6º",
     link: "https://lookerstudio.google.com/reporting/f63d1dd2-0f38-4580-a7b7-e50e17f4c8d1",
   },
-  {
-    icone: "📊",
-    cor: "economia",
-    titulo: "PRODES",
-    fonte: " ",
-    subtitulo:
-      "Programa de incentivos para o desenvolvimento econômico e social de Campo Grande",
-    posicao: "7º",
-    link: "https://lookerstudio.google.com/reporting/23713d3b-62be-4e85-bec0-49d87b8e4e43/page/rrOeF",
-  },
 ];
 
 export default function Root() {
